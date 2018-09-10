@@ -8,7 +8,7 @@ class ProductServiceAPI
 {
     public static function getProducts()
     {
-        $url = 'produtos';
+        $url = 'products';
 
         $response = self::httpRequestAPI(config('app.url_api'), $url, 'GET', [], []);
 
@@ -23,14 +23,10 @@ class ProductServiceAPI
     {
         $client = new \GuzzleHttp\Client(['base_uri' => $base_uri]);
 
-        try {
-            $response = $client->request($method, $uri, [
-                'headers' => $headers,
-                'json' => $data
-            ]);
-        } catch (GuzzleException $e) {
-            return null;
-        }
+        $response = $client->request($method, $uri, [
+            'headers' => $headers,
+            'json' => $data
+        ]);
 
         return $response;
     }

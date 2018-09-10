@@ -9,8 +9,10 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = ProductServiceAPI::getProducts();
+        /*$products = ProductServiceAPI::getProducts();
 
-        return view('welcome', compact('products'));
+        dd($products);*/
+
+        return view('welcome');
     }
 }
